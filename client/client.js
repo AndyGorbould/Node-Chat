@@ -13,7 +13,7 @@ sendAllBtn.addEventListener("click", sendToAllClicked); // rem. DON'T add () on 
 // tell server what to do
 function sendToAllClicked() {
     alert('i was clicked');
-    socket.emit('sendToAll', ('message'));
+    socket.emit('sendToAll', ('message')); // sends ('message') to server
 };
 
 
@@ -21,5 +21,27 @@ function sendToAllClicked() {
 
 
 
+// define btn & listen
+// let target = document.getElementById("target");
+
+
+// receive message back from server (step 14)
+socket.on('displayMessage', message => {
+    // target.innerHTML += '<br>' + message;
+    console.log(message);
+});
+
+
+
+
+
+
+
+
+
+
+
 // just a test
-console.log('I work in client');
+console.log('I work in client'); // +
+
+console.log(message['defaultValue']); // this works (client)

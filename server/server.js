@@ -23,19 +23,14 @@ io.on('connection', (socket) => {
     console.log('someone is connected');
     socket.on('sendToAll', (message) =>{
         io.emit("displayMessage", (message));
+        alert('serverr'); // this don't work so the whole func probably doesnt?
     });
 });
 
 
-// define btn & listen
-let target = document.getElementById("target");
 
-// receive message back from server (step 14)
-socket.on('displayMessage', (message) => {
-    target.innerHTML += '<br>' + message;
-});
 
 
 
 // just a test
-console.log('I work in server');
+console.log('I work in server'); // doesn't work because I'm server lulz

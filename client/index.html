@@ -13,7 +13,7 @@
 
     <!-- input form >>> text, sendall, sendprivate -->
     <section>
-        <!-- <form action=""> -->
+        <form action="" method="">
 
             <label for="message">Write your message:</label>
             <!-- text area -->
@@ -27,7 +27,7 @@
 
             <!-- <button name="sendToMe" type="submit">Send To Me</button> -->
 
-        <!-- </form> -->
+        </form>
 
         <div id="target">
             (Displayed Messages)
@@ -38,10 +38,10 @@
 
 
 
+    <!-- socket.io linked - serverside JS -->
     <script src="/socket.io/socket.io.js"></script>
-    <!-- socket.io linked -->
-    <!-- <script src="../node_modules\socket.io\client-dist\socket.io.js"></script>     -->
-    <script src="script.js"></script>
+    <!-- clientside JS -->
+    <script src="client.js"></script>
 </body>
 
 </html>
