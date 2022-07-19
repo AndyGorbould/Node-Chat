@@ -22,8 +22,8 @@ const io = require('socket.io')(server);
 io.on('connection', (socket) => {
     console.log('someone is connected');
     socket.on('sendToAll', (message) =>{
-        io.emit("displayMessage", (message));
-        alert('serverr'); // this don't work so the whole func probably doesnt?
+        io.emit("target", (message));
+        // alert('serverr'); // this don't work so the whole func probably doesnt?
     });
 });
 
