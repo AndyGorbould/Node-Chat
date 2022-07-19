@@ -20,17 +20,22 @@ const io = require('socket.io')(server);
 
 // make connection client>server
 io.on('connection', (socket) => {
-    console.log('someone connected');
-
-    // send message to all (step 12)
-    socket.emit('sendToAll', ('testing in server.js'));
-    
+    console.log('someone is connected');
     socket.on('sendToAll', (message) =>{
         io.emit("displayMessage", (message));
     });
-
 });
 
-// // checking
-// let counter = 0;
-// console.log(counter+' someone connected');
+
+// define btn & listen
+let target = document.getElementById("target");
+
+// receive message back from server (step 14)
+socket.on('displayMessage', (message) => {
+    target.innerHTML += '<br>' + message;
+});
+
+
+
+// just a test
+console.log('I work in server');
