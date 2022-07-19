@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,26 +8,36 @@
     <title>Chatroom</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+    <!-- input form >>> text, sendall, sendprivate -->
     <section>
+        <form action="">
 
-        <textarea id="userMessageInput" name="userMessage" rows="4" cols="50">
+            <label for="message">Say something:</label>
+            <textarea id="message" name="message" rows="3" cols="50">
             It's 1982 and Microsoft's first spreadsheet, Multiplan, arrived to battle VisiCalc. The word "spreadsheet" wasn't even a well-known term yet.
             </textarea>
 
-        <button name="sendToAll">Send All</button>
-        <button>Send Private</button>
+            <!-- <button name="sendToAll">Send All</button> -->
+            <button name="sendToAll" type="submit" onclick="socket.emit('sendToAll', ('message'));">Send Test</button>
+
+
+            <button name="sendPrivate">Send Private</button>
+
+        </form>
 
         <div id="displayMessage">
             (Displayed Messages)
         </div>
 
     </section>
-    
+
     <script src="/socket.io/socket.io.js"></script>
     <!-- socket.io linked -->
     <!-- <script src="../node_modules\socket.io\client-dist\socket.io.js"></script>     -->
     <script src="script.js"></script>
 </body>
+
 </html>

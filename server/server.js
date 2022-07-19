@@ -21,6 +21,14 @@ const io = require('socket.io')(server);
 // make connection client>server
 io.on('connection', (socket) => {
     console.log('someone connected');
+
+    // send message to all (step 12)
+    socket.emit('sendToAll', ('testing in server.js'));
+    
+    socket.on('sendToAll', (message) =>{
+        io.emit("displayMessage", (message));
+    });
+
 });
 
 // // checking

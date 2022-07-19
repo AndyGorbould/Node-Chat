@@ -7,9 +7,4 @@ console.log(counter+' someone connected');
 
 
 
-// send message to all (step 12)
-socket.emit('sendToAll', ('message'));
 
-socket.on('sendToAll', (message) =>{
-    io.emit("displayMessage", (message));
-});
