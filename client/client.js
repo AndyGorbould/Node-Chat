@@ -3,6 +3,7 @@ let socket = io.connect();    ///// this might be needed here to run
 
 // checking
 let counter = 0;
+counter++;
 console.log(counter+' someone connected');
 
 
@@ -16,9 +17,6 @@ function sendToAllClicked() {
     socket.emit('sendToAll', ('message')); // sends ('message') to server
     console.log(message + ' i work'); 
 };
-
-
-
 
 
 
