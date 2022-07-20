@@ -29,20 +29,10 @@ objects are easier to display without JSON decode etc > this syntax: socket.emit
 
 
 
-
-// in script.js
-make doc.body event listener for buttons
-
-
-
 //
-{"message":"A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received"}
+time is not updating, needs set when btn pressed?? =----- fixed by putting it in the display message func
 
-
-//
-time is not updating, needs set when btn pressed??
-
-//
+// IMPORTANT
 selected user, how to grab data??
 
 //

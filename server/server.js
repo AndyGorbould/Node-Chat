@@ -27,5 +27,11 @@ io.on('connection', (socket) => {
     });
 });
 
+io.on('connection', (socket) => {
+        socket.on('sendToAll', (user) =>{
+            io.emit("displayMessageUser", (user));
+    });
+});
+
 // just a test
 console.log('I work in server terminal'); // this DOES log in the terminal :)
