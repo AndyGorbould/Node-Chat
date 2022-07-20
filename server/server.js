@@ -1,4 +1,3 @@
-
 // require express & http
 const express = require('express');
 const http = require('http');
@@ -16,24 +15,17 @@ server.listen(8080, () => {
 
 // set up socket.io on server
 const io = require('socket.io')(server);
-// let socket = io.connect();  //// wrong place needs in script.js
 
-let i = 0;
+
 // make connection client>server    //  //  //  CONNECTION FUNCTION (server)
+let i = 0;
 io.on('connection', (socket) => {
     i++;
     console.log(i+ ' someone is connected');
-        socket.on('sendToAll', (message) =>{
-            io.emit("displayMessage", (message));
-        
-        // alert('serverr'); // this don't work so the whole func probably doesnt?
+        socket.on('sendToAll', (msg) =>{
+            io.emit("displayMessage", (msg));
     });
 });
-
-
-
-
-
 
 // just a test
 console.log('I work in server terminal'); // this DOES log in the terminal :)
