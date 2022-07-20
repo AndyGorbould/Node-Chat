@@ -19,12 +19,13 @@ const io = require('socket.io')(server);
 // let socket = io.connect();  //// wrong place needs in script.js
 
 let i = 0;
-// make connection client>server
+// make connection client>server    //  //  //  CONNECTION FUNCTION (server)
 io.on('connection', (socket) => {
     i++;
     console.log(i+ ' someone is connected');
-    socket.on('sendToAll', (message) =>{
-        io.emit("target", (message));
+        socket.on('sendToAll', (message) =>{
+            io.emit("displayMessage", (message));
+        
         // alert('serverr'); // this don't work so the whole func probably doesnt?
     });
 });
@@ -35,4 +36,4 @@ io.on('connection', (socket) => {
 
 
 // just a test
-console.log('I work in server'); // doesn't work because I'm server lulz
+console.log('I work in server terminal'); // this DOES log in the terminal :)

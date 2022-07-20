@@ -8,13 +8,33 @@ console.log(counter+' someone connected');
 
 
 // define btn & listen
-let sendAllBtn = document.getElementById("sendToAll");
-sendAllBtn.addEventListener("click", sendToAllClicked); // rem. DON'T add () on the func name :D
+// let sendAllBtn = document.getElementById("sendToAll");
+// sendAllBtn.addEventListener("click", sendToAllClicked); // rem. DON'T add () on the func name :D
+
+
+document.getElementById('sendToAll').addEventListener('click', () => {
+    let msg = document.getElementById('msg').value;
+    socket.emit('sendToAll', (msg));
+})
+
+
+
+
+
+
+// define btn & listen
+let target = document.getElementById("target");
+
+// receive message back from server (step 14)
+socket.on('displayMessage', (message) => {
+    target.innerHTML += '<br>' + message;
+    console.log(message + ' i work');           ////// these seem to work!!!!
+});
 
 // tell server what to do
 function sendToAllClicked() {
     // alert('i was clicked');
-    socket.emit('sendToAll', ('message')); // sends ('message') to server
+    socket.emit('sendToAll', (message)); // sends ('message') to server
     console.log(message + ' i work'); 
 };
 
@@ -23,12 +43,6 @@ function sendToAllClicked() {
 // define btn & listen
 // let target = document.getElementById("target");
 
-
-// receive message back from server (step 14)
-socket.on('displayMessage', message => {
-    target.innerHTML += '<br>' + message + ' working???';
-    console.log(message + ' i work');           ////// these seem to work!!!!
-});
 
 
 
@@ -42,5 +56,3 @@ socket.on('displayMessage', message => {
 
 // just a test
 console.log('I work in client'); // +
-
-console.log(message['defaultValue']); // this works (client)
