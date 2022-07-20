@@ -8,7 +8,7 @@ console.log(counter+' someone connected');
 
 
 // User select (dropdown)
-let select = document.getElementById("selectUser");
+let selectUser = document.getElementById("selectUser");
 let users = ["Korvo", "Mork", "A.L.F.", "Rufus", "Xeno"];
 
 for(let i = 0; i < users.length; i++) {
@@ -16,8 +16,15 @@ for(let i = 0; i < users.length; i++) {
     let el = document.createElement("option");
     el.textContent = opt;
     el.value = opt;
-    select.appendChild(el);
+    selectUser.appendChild(el);
 };
+
+selectUser.addEventListener('change', (event) => {
+    let result = document.getElementById('userName');
+    result.textContent = `Hi 👽 ${event.target.value} 👽 Welcome back to the chatroom!`;
+    console.log(result.textContent); // conlog test
+  });
+
 
 
 // button (sendToAll)
