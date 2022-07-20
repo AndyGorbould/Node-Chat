@@ -29,6 +29,7 @@ selectUser.addEventListener('change', (event) => {
 
 // button (sendToAll)
 document.getElementById('sendToAll').addEventListener('click', () => {
+    // let user = document.getElementById('userName');
     let msg = document.getElementById('msg').value;
     socket.emit('sendToAll', (msg));
 });
@@ -36,9 +37,16 @@ document.getElementById('sendToAll').addEventListener('click', () => {
 // define target for prints
 let target = document.getElementById("target");
 
+
+// add time
+let time = new Date().toLocaleString('en-GB', { timeZone: 'UTC' });
+
+
 // receive message back from server (step 14)
 socket.on('displayMessage', (message) => {
-    target.innerHTML += '<br>' + message;
+    target.innerHTML += '<tr><td>' + 'get user name' + '</td><td>' + message + '</td><td>' + time + '</td></tr>';
+
+    // target.append(`<td>user</td>`);
     console.log(message + ' i work');           ////// these seem to work!!!!
 });
 

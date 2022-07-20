@@ -37,3 +37,13 @@ make doc.body event listener for buttons
 
 //
 {"message":"A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received"}
+
+
+//
+time is not updating, needs set when btn pressed??
+
+//
+selected user, how to grab data??
+
+//
+display messages in opposite order???
