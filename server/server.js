@@ -21,17 +21,15 @@ const io = require('socket.io')(server);
 let i = 0;
 io.on('connection', (socket) => {
     i++;
-    console.log(i+ ' someone is connected');
-        socket.on('sendToAll', (msg) =>{
-            io.emit("displayMessage", (msg));
-    });
+    console.log(i + ' someone is connected');
+    socket.on('sendToAll', msg =>{
+        io.emit("displayMessage", msg);
+});
+socket.on('sendUserName', userName =>{
+    io.emit("displayMessage", userName);
+});
 });
 
-io.on('connection', (socket) => {
-        socket.on('sendToAll', (user) =>{
-            io.emit("displayMessageUser", (user));
-    });
-});
 
 // just a test
 console.log('I work in server terminal'); // this DOES log in the terminal :)
