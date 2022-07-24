@@ -37,3 +37,8 @@ selected user, how to grab data??
 
 //
 display messages in opposite order???
+
+//
+one MAJOR problem was getting the correct data to emit from the dropdown menu! This may not be the correct way (I'll have to figure it out), but, this was my solution `  userName = event.target.value;  ` This made the value transmitable as a string
+
+//
