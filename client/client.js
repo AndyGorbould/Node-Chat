@@ -51,7 +51,7 @@ let target = document.getElementById("target");
 // receive message back from server (step 14)
 socket.on("displayMessage", (message) => {
   // add time
-  let time = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
+  let time = new Date().toLocaleString("en-GB", { timeZone: "UTC" }); // stick this in with objects
   target.innerHTML +=
     "<tr><td>" +
     userName +
