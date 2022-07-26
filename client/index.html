@@ -13,52 +13,35 @@
 </head>
 
 <body>
-
-
-    <!-- SELECT USER -->
-    <label for="selectUser">What ur name dude:</label>
-    <select id="selectUser">
-        <option>Choose your username:</option>
-    </select>
-    <!-- THIS WELCOMES THE SELECTED USER -->
-    <div id="userName"></div>
-
-
-    <!-- input form >>> text, sendall, sendprivate -->
-    <section class="row">
-        <!-- <form action="" method=""> -->
-
-        <label for="message">Write your message:</label>
-        <!-- text area -->
-        <textarea class="small-12 medium-6 columns" id="msg" name="message" rows="5">Test Message</textarea>
-
-        <div class="button-group">
-            <!-- send all btn -->
-            <button id="sendToAll" class="button">Send Test</button>
-            <button id="sendToMe" class="alert button">Send Me</button>
-        </div>
-
-
-        <!-- <button name="sendToMe" type="submit">Send To Me</button> -->
-
-        <!-- </form> -->
-
-        <!-- <div id="target"> -->
-            (Displayed Messages)
-            <table>
-                <thead>
-                  <tr>
+    
+    <!-- make this section scrollable & the input fixed -->
+    <section class="row output">
+        (Displayed Messages)
+        <table>
+            <thead>
+                <tr>
                     <th width="100">User</th>
                     <th>Message</th>
                     <th width="150">Time Sent</th>
-                  </tr>
-                </thead>
-                <tbody id="target">
-                </tbody>
-            </table>
-        <!-- </div> -->
-
+                </tr>
+            </thead>
+            <tbody id="target">
+            </tbody>
+        </table>
     </section>
+
+    <section class="row input">
+        <label for="user">Your Name:</label>
+        <input type="text" id="user" name="user" placeholder="your name">
+        <label for="message">Write your message:</label>
+        <textarea class="small-12 medium-6 columns" id="message" name="message" rows="3" placeholder="write your message here"></textarea>
+        <div class="button-group">
+            <button id="sendAll" class="button">Send</button>
+            <button id="sendSelf" class="alert button">Note</button>
+            <!-- <button id="clear" class="alert button">Clear</button> -->
+        </div>
+    </section>
+
 
 
 

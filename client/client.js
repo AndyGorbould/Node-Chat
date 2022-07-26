@@ -1,68 +1,42 @@
 let socket = io.connect(); ///// this might be needed here to run
 
+// from DOM
+let message = document.getElementById('message');
+let user = document.getElementById('user');
+let sendAll = document.getElementById('sendAll');
+let sendSelf = document.getElementById('sendSelf');
+
 // checking how many clients connected
 let counter = 0;
 counter++;
 console.log(counter + " someone connected");
 
-// User select (dropdown)
-
-let selectUser = document.getElementById("selectUser");
-let users = [
-  "Korvo",
-  "Terry",
-  "Jesse",
-  "Yumyulack",
-  "Mr. Nanobots",
-  "Red Goobler",
-  "Mork",
-  "A.L.F.",
-  "Rufus",
-  "Xeno",
-];
-
-for (let i = 0; i < users.length; i++) {
-  let opt = users[i];
-  let el = document.createElement("option");
-  el.textContent = opt;
-  el.value = opt;
-  selectUser.appendChild(el);
-}
-
-selectUser.addEventListener("change", (event) => {
-  userName = event.target.value;
-  console.log(userName + " i am i am");
-  socket.emit("sendUserName", userName);
-});
-
-// button (sendToAll)
-document.getElementById("sendToAll").addEventListener("click", () => {
-  let msg = document.getElementById("msg").value;
-  let userObj = {
-    user: userName,
-    msg: msg
-  }
-  socket.emit("sendToAll", userObj);
+// send object on click
+document.getElementById('sendAll').addEventListener('click', () => {
+    let time = new Date().toLocaleString("en-GB", { timeZone: "UTC" });
+    socket.emit('chat', {
+        user: user.value,
+        message: message.value,
+        time: time,
+    });
 });
 
 // define target for prints
-let target = document.getElementById("target");
+let target = document.getElementById('target');
 
 // receive message back from server (step 14)
-socket.on("displayMessage", (message) => {
-  // add time
-  let time = new Date().toLocaleString("en-GB", { timeZone: "UTC" }); // stick this in with objects
-  target.innerHTML +=
-    "<tr><td>" +
-    userName +
-    "</td><td>" +
-    message +
-    "</td><td>" +
-    time +
-    "</td></tr>";
+socket.on('chat', (data) => {
+    target.innerHTML +=
+        "<tr><td>" +
+        data.user +
+        "</td><td>" +
+        data.message +
+        "</td><td>" +
+        data.time +
+        "</td></tr>";
 
-  // target.append(`<td>user</td>`);
-  console.log(message + " message works"); ////// these seem to work!!!!
+    // target.append(`<td>user</td>`);
+    console.log(message + " message works"); ////// these seem to work!!!!
 });
 
 // just a test

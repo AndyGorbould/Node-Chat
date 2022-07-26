@@ -1,6 +1,6 @@
 // require express & http
-const express = require("express");
-const http = require("http");
+const express = require('express');
+const http = require('http');
 
 // express & http to host client
 const app = express();
@@ -14,27 +14,26 @@ server.listen(8080, () => {
 });
 
 // set up socket.io on server
-const io = require("socket.io")(server);
+const io = require('socket.io')(server);
 
 // make connection client>server    //  //  //  CONNECTION FUNCTION (server)
 let i = 0;
-io.on("connection", (socket) => {
+io.on('connection', (socket) => {
+  console.log(`connected id: ${socket.id}`);
   i++;
-  console.log(i + " someone is connected");
-  socket.on("sendToAll", (msg) => {
-    io.emit("displayMessage", msg);
-  });
-  socket.on("sendUserName", (userName) => {
-    io.emit("displayMessage", userName);
+  console.log(i + ' someone is connected');
+  socket.on('chat', (data) => {
+    io.emit('chat', data
+    );
   });
 });
 
 // just a test
-console.log("I work in server terminal"); // this DOES log in the terminal :)
+console.log('I work in server terminal'); // this DOES log in the terminal :)
 
 
 
-// make empty array for users, let client have, link with socket id, 
+// make empty array for users, let client have, link with socket id,
 // don't store local!! only in server :)
-// send obj with user & msg, OR sock ID & msg, 
+// send obj with user & msg, OR sock ID & msg,
 // 
